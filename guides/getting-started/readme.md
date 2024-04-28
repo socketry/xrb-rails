@@ -7,7 +7,7 @@ This guide will help you get started using `XRB` templates in your Rails applica
 Add the gem to your project:
 
 ``` shell
-$ bundle add xrb
+$ bundle add xrb-rails
 ```
 
 ## Usage
