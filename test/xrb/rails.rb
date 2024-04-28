@@ -65,4 +65,19 @@ describe XRB::Rails::TemplateHandler do
 		
 		expect(output).to be == "\t&lt;STRONG&gt;HELLO WORLD&lt;/STRONG&gt;\n\n"
 	end
+	
+	it "can render fragment" do
+		source = <<~'XRB'
+		<?r fragment = ::XRB::Builder.fragment do |builder|
+			builder.tag("strong") {builder.text("Hello World")}
+		end ?>
+		#{fragment}
+		XRB
+		
+		template = ActionView::Template.new(source, "test.html.xrb", XRB::Rails::TemplateHandler, locals: [], format: "text/html")
+		
+		output = template.render(view, {})
+		
+		expect(output).to be == "<strong>\n\tHello World\n</strong>\n"
+	end
 end
