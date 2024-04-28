@@ -48,6 +48,10 @@ module XRB
 			def self.call(template, source)
 				Template.load(source).to_code
 			end
+			
+			def self.supports_streaming?
+				true
+			end
 		end
 	end
 end
