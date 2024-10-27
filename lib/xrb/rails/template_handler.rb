@@ -12,19 +12,15 @@ module XRB
 		class Builder
 			def initialize(output_buffer)
 				@output_buffer = output_buffer
+				@raw_buffer = @output_buffer
+				
+				if @output_buffer.respond_to?(:raw_buffer)
+					@raw_buffer = @output_buffer.raw_buffer
+				end
 			end
 			
 			def <<(content)
-				if content.is_a?(::XRB::Builder::Fragment)
-					# XRB's safe output mechanism for lazy evaluation of fragments:
-					@output_buffer.safe_concat(content.to_s)
-				elsif content.is_a?(Markup)
-					# XRB's safe output mechanism:
-					@output_buffer.safe_concat(content)
-				else
-					# Unsafe output:
-					@output_buffer << content
-				end
+				content.append_markup(@raw_buffer)
 			end
 			
 			def raw(content)
