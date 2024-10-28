@@ -3,8 +3,8 @@
 # Released under the MIT License.
 # Copyright, 2024, by Samuel Williams.
 
-require 'xrb/template'
-require 'xrb/builder'
+require "xrb/template"
+require "xrb/builder"
 
 module XRB
 	module Rails

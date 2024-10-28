@@ -3,8 +3,8 @@
 # Released under the MIT License.
 # Copyright, 2024, by Samuel Williams.
 
-require 'xrb/rails/template_handler'
-require 'action_view'
+require "xrb/rails/template_handler"
+require "action_view"
 
 describe XRB::Rails::TemplateHandler do
 	def view

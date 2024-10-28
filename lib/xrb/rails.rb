@@ -3,4 +3,4 @@
 # Released under the MIT License.
 # Copyright, 2024, by Samuel Williams.
 
-require_relative 'rails/railtie' if defined?(Rails)
+require_relative "rails/railtie" if defined?(Rails)
